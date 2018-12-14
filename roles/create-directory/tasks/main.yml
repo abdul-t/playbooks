@@ -1,8 +1,8 @@
 ---
 - name: create directory
   file:
-    path: /home/ubuntu/bhaskar
+    path: /root/bhaskar
     state: directory
-    owner: ubuntu
-    group: ubuntu
+    owner: root
+    group: root
     mode: 0755
