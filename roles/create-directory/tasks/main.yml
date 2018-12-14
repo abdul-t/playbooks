@@ -1,8 +1,8 @@
 ---
 - name: create directory
   file:
-    path: /home/ansible/bhaskar
+    path: /home/ubuntu/bhaskar
     state: directory
-    owner: ansible
-    group: ansible
+    owner: ubuntu
+    group: ubuntu
     mode: 0755
