@@ -1,6 +1,6 @@
 ---
 - name: Create file
   file:
-    path: /home/ansible
+    path: /home/ansible/site.yml
     state: touch
     mode: 0755
