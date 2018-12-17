@@ -1,0 +1,6 @@
+---
+- name: create file
+  file:
+    path: /home/ansible
+    state: touch
+    mode: 0755
