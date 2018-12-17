@@ -1,7 +1,7 @@
 ---
 - name: create directory
   file:
-    path: /home/ansible/bhaskar
+    path: /home/ansible/ror
     state: directory
     owner: ansible
     group: ansible
