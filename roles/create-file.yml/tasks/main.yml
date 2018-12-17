@@ -3,4 +3,6 @@
   file:
     path: /home/ansible/site.yml
     state: touch
+    owner: ansible
+    group: ansible
     mode: 0755
