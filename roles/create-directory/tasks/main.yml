@@ -3,6 +3,6 @@
   file:
     path: /home/ansible/ror12
     state: directory
-    owner: ansible
-    group: ansible
-    mode: 0755
+    #owner: ansible
+    #group: ansible
+    #mode: 0755
