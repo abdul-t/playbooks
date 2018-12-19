@@ -1,8 +1,8 @@
 ---
 - name: create directory
   file:
-    path: /home/ubuntu/ror12
+    path: /root/ror12
     state: directory
-    owner: ubuntu
-    group: ubuntu
+    owner: root
+    group: root
     mode: 0755
