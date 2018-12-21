@@ -1,5 +1,5 @@
 ---
 - hosts: all
-  become: fales
+  become: true
   roles:
    - create-directory
