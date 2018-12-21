@@ -1,8 +1,8 @@
 ---
 - name: create directory
   file:
-    path: /root/ror12
+    path: /home/ubuntu/ror12
     state: directory
-    #owner: ansible
-    #group: ansible
-    #mode: 0755
+    owner: ubuntu
+    group: ubuntu
+    mode: 0755
