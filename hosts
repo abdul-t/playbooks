@@ -41,6 +41,6 @@
 # leading 0s:
 
 ## db-[99:101]-node.example.com
-[server]
-172.31.0.108 ansible_user=ubuntu
+ [server]
+ 172.31.0.108 ansible_user=ubuntu
 
