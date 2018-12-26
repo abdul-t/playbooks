@@ -1,9 +1,9 @@
 ---
 - name: Create file
   file:
-    path: /home/ansible/site.yml
+    path: /home/ubuntu/site.yml
     state: touch
-    owner: ansible
-    group: ansible
+    owner: ubuntu
+    group: ubuntu
     mode: 0644
    
