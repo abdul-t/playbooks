@@ -1,0 +1,27 @@
+---
+- name: Create ec2 instance
+  ec2:
+     keypair: "{{ keyname }}"
+     group: "{{ group }}"
+     instance_type: "{{instancetype }}"
+     image: "{{ ami }}"
+     instance_profile_name: "{{ iam }}"
+     wait: yes
+     region: "{{ region }}"
+     count: " {{ count }}"
+     instance_tags:
+       Name: "{{tag_Name}}"
+       State: "{{tag_State}}"
+       owner: "{{ ownername }}" 
+       Env: "{{ envname }}"
+       Project: "{{ projectname }}"
+       Schedule: "{{ time }}" 
+     vpc_subnet_id: "{{ subnetid }}"
+     user_data: "{{ user_data }}"
+     assign_public_ip: no
+  register: "{{ec2_instance}}"
+
+
+
+
+ 
