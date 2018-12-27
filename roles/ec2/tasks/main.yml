@@ -8,7 +8,7 @@
      instance_profile_name:  devops_poc #"{{ iam }}"
      wait: yes
      region: us-east-1 #"{{ region }}"
-     count: 1 #"{{ count }}"
+     #count: 1 #"{{ count }}"
      instance_tags:
        Name: ansible-tower #"{{tag_Name}}"
        State: green #"{{tag_State}}"
