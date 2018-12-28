@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
   become: true
+  user: ubuntu
   roles:
    - ec2
