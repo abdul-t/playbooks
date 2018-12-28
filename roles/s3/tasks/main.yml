@@ -1,0 +1,8 @@
+---
+- name: Simple GET operation
+  aws_s3:
+    bucket: dev-ops-framework-cdn
+    object: /assets/.sprockets-manifest-332b16ee730d18f95e34ec777776a14e.json
+    dest: /home/ubuntu
+    mode: get
+    
