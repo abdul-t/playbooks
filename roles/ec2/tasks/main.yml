@@ -1,23 +1,23 @@
 ---
 - name: Create ec2 instance
   ec2:
-     keypair:  ansibletower #"{{ keyname }}"
-     #group: "{{ group }}"
-     instance_type:  t2.micro #"{{instancetype }}"
-     image:  ami-0f9cf087c1f27d9b1 #"{{ ami }}"
-     instance_profile_name:  devops_poc #"{{ iam }}"
-     wait: yes
-     region: us-east-1 #"{{ region }}"
-     #count: 1 #"{{ count }}"
-     instance_tags:
-       Name: ansible-tower #"{{tag_Name}}"
-       State: green #"{{tag_State}}"
-       owner: bhaskar #"{{ ownername }}" 
-       Env: cync-dev #"{{ envname }}"
-       Project: cync-ansible #"{{ projectname }}"
-       Schedule: 8PM IST #"{{ time }}" 
-     vpc_subnet_id:  subnet-1272d74e #"{{ subnetid }}"
-     assign_public_ip: no
+    keypair:  ansibletower #"{{ keyname }}"
+    group:  launch-wizard-23 #"{{ group }}"
+    instance_type:  t2.micro #"{{instancetype }}"
+    image:  ami-0f9cf087c1f27d9b1 #"{{ ami }}"
+    instance_profile_name:  devops_poc #"{{ iam }}"
+    wait: yes
+    region: us-east-1 #"{{ region }}"
+    count: 1 #"{{ count }}"
+    instance_tags:
+      Name: ansible-tower #"{{tag_Name}}"
+      State: green #"{{tag_State}}"
+      owner: bhaskar #"{{ ownername }}" 
+      Env: cync-dev #"{{ envname }}"
+      Project: cync-ansible #"{{ projectname }}"
+      Schedule: 8PM IST #"{{ time }}" 
+    vpc_subnet_id:  subnet-1272d74e #"{{ subnetid }}"
+    assign_public_ip: no
   register: "{{ec2_instance}}"
 
 
