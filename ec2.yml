@@ -2,6 +2,5 @@
 - hosts: localhost
   become: fales
   roles:
-   - infra
    - ec2
    
