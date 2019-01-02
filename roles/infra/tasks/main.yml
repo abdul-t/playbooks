@@ -8,5 +8,12 @@
     wait: yes
     group: launch-wizard-23
     count: 1
+    instance_tags:
+      Name: ansible-tower12 #"{{tag_Name}}"
+      State: green #"{{tag_State}}"
+      owner: bhaskar #"{{ ownername }}" 
+      Env: cync-dev #"{{ envname }}"
+      Project: cync-ansible #"{{ projectname }}"
+      Schedule: 8PM IST
     vpc_subnet_id: subnet-1272d74e
     assign_public_ip: no
