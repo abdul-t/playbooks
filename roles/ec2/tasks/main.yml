@@ -18,7 +18,7 @@
       Schedule: 8PM IST #"{{ time }}" 
     vpc_subnet_id: subnet-1272d74e #"{{ subnetid }}"
     assign_public_ip: no
-  register: "{{ec2_instance}}"
+  register: ec2 #"{{ec2_instance}}"
 
 
 
