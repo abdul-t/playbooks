@@ -5,4 +5,5 @@
     object: /assets/.sprockets-manifest-332b16ee730d18f95e34ec777776a14e.json
     dest: /home/ubuntu
     mode: get
+    mode: 0755
     
