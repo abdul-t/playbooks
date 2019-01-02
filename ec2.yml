@@ -3,5 +3,5 @@
   become: fales
   roles:
    - infra
-   - ec2
+   #- ec2
    
