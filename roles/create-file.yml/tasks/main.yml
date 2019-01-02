@@ -5,5 +5,5 @@
     state: touch
     owner: ubuntu
     group: ubuntu
-    mode: 0644
+    mode: 0755
    
