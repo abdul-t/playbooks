@@ -2,7 +2,7 @@
 - name: Create ec2 instance
   ec2:
     key_name: ansibletower #"{{ keyname }}"
-    group: aunch-wizard-23 #"{{ group }}"
+    group: launch-wizard-23 #"{{ group }}"
     instance_type: t2.micro #"{{instancetype }}"
     image: ami-0f9cf087c1f27d9b1 #"{{ ami }}"
     instance_profile_name: devops_poc #"{{ iam }}"
