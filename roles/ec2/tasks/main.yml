@@ -1,7 +1,7 @@
 ---
 - name: Create ec2 instance
   ec2:
-    keypair:  ansibletower #"{{ keyname }}"
+    key_name:  ansibletower #"{{ keyname }}"
     group:  launch-wizard-23 #"{{ group }}"
     instance_type:  t2.micro #"{{instancetype }}"
     image:  ami-0f9cf087c1f27d9b1 #"{{ ami }}"
