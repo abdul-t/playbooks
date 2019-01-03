@@ -14,4 +14,15 @@
 #time: 8PM IST
 #subnetid: subnet-1272d74e
 #ec2_instance: ec2
+tagName: Ansible-tower
+tagState: green
+instanceType: t2.micro
+noreboot: yes
+devicename: /dev/sda1
+devicetype: gp2
+size: 8
+createlc: 1
+waitforami: no
+ebsoptimized: yes
+instancemonitoring: yes
 
