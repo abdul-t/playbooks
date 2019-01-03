@@ -7,7 +7,7 @@
   set_fact:
     instanceName: "{{item.tagName}}"
     instanceType: "{{item.instanceType}}"
-    autoScalingGroupName: "{{item.autoScalingGroupName}}"
+    #autoScalingGroupName: "{{item.autoScalingGroupName}}"
     deviceName: "{{item.devicename}}"
     deviceType: "{{item.devicetype}}"
     volumeSize: "{{item.size}}"
@@ -40,7 +40,7 @@
     loop_var: ec2_instance
 
 - name: create launch config
-  #when: createlaunchConfig == "1"
+  when: createlaunchConfig == "1"
   ec2_lc:
     name: "{{instanceName}}-{{ timestamp.stdout }}"
     image_id: "{{ami.image_id}}"
