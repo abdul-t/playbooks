@@ -2,6 +2,8 @@
 - hosts: localhost
   become: fales
   roles:
-   - ec2
-   - create-elb
+   #- ec2
+   #- create-elb
+   - create-ami-lc
+   
    
