@@ -3,27 +3,27 @@
   command: date +%d%b%Y-%H%M
   register: timestamp
 
-- name: Registering the instance names
-  set_fact:
-    instanceName: "{{item.tagName}}"
-    instanceType: "{{item.instanceType}}"
+#- name: Registering the instance names
+  #set_fact:
+    #instanceName: "{{item.tagName}}"
+    #instanceType: "{{item.instanceType}}"
     #autoScalingGroupName: "{{item.autoScalingGroupName}}"
-    deviceName: "{{item.devicename}}"
-    deviceType: "{{item.devicetype}}"
-    volumeSize: "{{item.size}}"
-    createlaunchConfig: "{{item.createlc}}"
-    waitForAmiCreation: "{{item.waitforami}}"
-    amiTags: "{{item.tags}}"
-    noreboot: "{{item.noreboot}}"
-    EbsOptimized: "{{ item.ebsoptimized}}"
-    InstanceMonitoring: "{{ item.instancemonitoring }}"
+    #deviceName: "{{item.devicename}}"
+    #deviceType: "{{item.devicetype}}"
+    #volumeSize: "{{item.size}}"
+    #createlaunchConfig: "{{item.createlc}}"
+    #aitForAmiCreation: "{{item.waitforami}}"
+    #miTags: "{{item.tags}}"
+    #noreboot: "{{item.noreboot}}"
+    #EbsOptimized: "{{ item.ebsoptimized}}"
+    #nstanceMonitoring: "{{ item.instancemonitoring }}"
 - name: Find EC2 Facts
   ec2_instance_facts:
     region: "{{ regionname }}"
     filters:
       instance-state-name: running
-      "tag:Name": "{{item.tagName}}"
-      "tag:State": "{{item.tagState}}"
+      "tag:Name": "{{tagName}}"
+      "tag:State": "{{tagState}}"
   register: ec2_instances
 
 - name: create AMI
@@ -36,8 +36,8 @@
     no_reboot: "{{noreboot}}"
   with_items: "{{ ec2_instances.instances }}"
   register: ami_array
-  loop_control:
-    loop_var: ec2_instance
+  #loop_control:
+    #loop_var: ec2_instance
 
 - name: create launch config
   when: createlaunchConfig == "1"
@@ -58,5 +58,5 @@
     assign_public_ip: no
   with_items: "{{ ami_array.results }}"
   register: lc_result
-  loop_control:
-    loop_var: ami
+  #loop_control:
+    #loop_var: ami
