@@ -15,6 +15,7 @@
 #subnetid: subnet-1272d74e
 #ec2_instance: ec2
 tagName: Ansible-tower
+regionname: us-east-1
 tagState: green
 instanceType: t2.micro
 noreboot: yes
