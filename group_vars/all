@@ -1,16 +1,16 @@
 ---
-keyname: chefpoc
-group: launch-wizard-23
-instancetype: t2.micro
-ami: ami-0f9cf087c1f27d9b1
-iam: devops_poc
-region: us-east-1
-count: 1
-tag_Name: towernode2
-tag_State: green
-ownername: bhaskar
-envname: cync-dev
-projectname: cync-ansible
-time: 8PM IST
-subnetid: subnet-1272d74e
-ec2_instance: ec2
+#keyname: chefpoc
+#group: launch-wizard-23
+#instancetype: t2.micro
+#ami: ami-0f9cf087c1f27d9b1
+#iam: devops_poc
+#region: us-east-1
+#count: 1
+#tag_Name: towernode2
+#tag_State: green
+#ownername: bhaskar
+#envname: cync-dev
+#projectname: cync-ansible
+#time: 8PM IST
+#subnetid: subnet-1272d74e
+#ec2_instance: ec2
