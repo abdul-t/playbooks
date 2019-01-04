@@ -1,53 +1,36 @@
 ---
 - name: Get the timestamp
-  command: date +%d%b%Y-%H%M
+  shell: date +%d%b%Y-%H%M
   register: timestamp
 
-#- name: Registering the instance names
-  #set_fact:
-    #instanceName: "{{item.tagName}}"
-    #instanceType: "{{item.instanceType}}"
-    #autoScalingGroupName: "{{item.autoScalingGroupName}}"
-    #deviceName: "{{item.devicename}}"
-    #deviceType: "{{item.devicetype}}"
-    #volumeSize: "{{item.size}}"
-    #createlaunchConfig: "{{item.createlc}}"
-    #aitForAmiCreation: "{{item.waitforami}}"
-    #miTags: "{{item.tags}}"
-    #noreboot: "{{item.noreboot}}"
-    #EbsOptimized: "{{ item.ebsoptimized}}"
-    #nstanceMonitoring: "{{ item.instancemonitoring }}"
 - name: Find EC2 Facts
-  ec2_instance_facts:
-    region: "{{ regionname }}"
+  ec2_remote_facts:
+    region: "{{ region}}"
     filters:
       instance-state-name: running
-      "tag:Name": "{{tagName}}"
-      "tag:State": "{{tagState}}"
+      "tag:Name": "{{tagname}}"
+      "tag:State": "{{tagstate}}"
   register: ec2_instances
-
 - name: create AMI
   ec2_ami:
-    instance_id: "{{ec2_instance.instance_id}}"
-    region: "{{ regionname }}"
+    instance_id: "{{item.id}}"
+    region: "{{ region }}"
     wait: "{{waitForAmiCreation}}"
     name: "{{instanceName}}-{{timestamp.stdout}}"
-    tags: "{{amiTags}}"
-    no_reboot: "{{noreboot}}"
+    #tags: "{{amiTags}}"
+    tags:
+      Name: "{{tagname}}"
+      State: "{{tagstate}}"
   with_items: "{{ ec2_instances.instances }}"
   register: ami_array
-  #loop_control:
-    #loop_var: ec2_instance
 
 - name: create launch config
-  when: createlaunchConfig == "1"
   ec2_lc:
     name: "{{instanceName}}-{{ timestamp.stdout }}"
-    image_id: "{{ami.image_id}}"
-    instance_profile_name: "{{ami.ec2_instance.iam_instance_profile.arn}}"
-    key_name: "{{ami.ec2_instance.key_name}}"
-    region: "{{regionname}}"
-    security_groups: "{{ami.ec2_instance.security_groups[0].group_name}}"
+    image_id: "{{item.image_id}}"
+    key_name: "{{keyName}}"
+    region: "{{region}}"
+    security_groups: "{{ groupId}}"
     instance_type: "{{ instanceType }}"
     ebs_optimized: "{{ EbsOptimized }}"
     instance_monitoring: "{{ InstanceMonitoring }}"
@@ -56,7 +39,4 @@
       volume_type: "{{ deviceType }}"
       volume_size:  "{{ volumeSize }}"
     assign_public_ip: no
-  with_items: "{{ ami_array.results }}"
-  register: lc_result
-  #loop_control:
-    #loop_var: ami
+  with_items: "{{ ami_array.results }}"  
