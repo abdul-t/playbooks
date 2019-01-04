@@ -27,6 +27,6 @@ deviceName: /dev/sda1
 deviceType: gp2
 volumeSize: 8
 #autoScalingGroupName: "{{autoScalingGroupname}}"
- groupId: subnet-1272d74e
- keyName: chefpoc
+groupId: sg-07acab6de0a8f3724
+keyName: chefpoc
 
