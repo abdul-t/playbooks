@@ -14,7 +14,7 @@
 #time: 8PM IST
 #subnetid:
 #ec2_instance: ec2
-region: 
+region: us-east-1
 tagname: Ansible-tower
 tagstate: green
 #aminame: "{{angular_ami_name}}"
