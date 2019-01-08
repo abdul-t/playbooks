@@ -1,7 +1,6 @@
 ---
 - name: create Autoscaling Groups
-  tags:
-    - angular
+  tags: angular
   State: present
   ec2_asg:
     name: asgdemo
