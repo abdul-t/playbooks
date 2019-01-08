@@ -1,0 +1,24 @@
+---
+- name: create Autoscaling Groups
+  tags:
+    - angular
+  State: green
+  ec2_asg:
+    name: asgdemo
+    #load_balancers: "{{ elbname }}"
+    region: us-east-1
+    availability_zones: ['us-east-1a', 'us-east-1b']
+    #availability_zones:
+      #- "{{ zonea }}"
+      #- "{{ zoneb }}"
+    launch_config_name: ansibletower-08Jan2019-1327
+    min_size: 1
+    max_size: 1
+    desired_capacity: 1
+    vpc_zone_identifier: ['subnet-6a09ac0d', 'subnet-81ac46bf']
+    #vpc_zone_identifier:
+      #- "{{ subneta }}"
+      #- "{{ subnetb}}"
+    tags:
+      - environment: production
+        propagate_at_launch: no
