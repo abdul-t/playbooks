@@ -2,4 +2,5 @@
 - hosts: localhost
   roles:
   #- infra
-   - ec2_sg 
+   #- ec2_sg 
+   - asg
