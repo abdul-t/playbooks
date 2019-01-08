@@ -39,4 +39,16 @@
       volume_type: "{{ deviceType }}"
       volume_size:  "{{ volumeSize }}"
     assign_public_ip: no
-  with_items: "{{ ami_array.results }}"  
+  with_items: "{{ ami_array.results }}" 
+  register: lc_result
+  
+- name: Create Auto Scaling Group with launch configuration name
+  ec2_asg:
+    region: "{{ region }}"
+    name: "{{autoScalingGroupName }}"
+    launch_config_name: "{{ item.name }}"
+    termination_policies: "{{ asg.results[0].termination_policies }}"
+    suspend_processes: "{{ asg.results[0].suspended_processes[0].process_name if(asg.results[0].suspended_processes | length > 0) else [] }}"
+    state: present
+  with_items: "{{ lc_result.results  }}" 
+  register: asg_result
