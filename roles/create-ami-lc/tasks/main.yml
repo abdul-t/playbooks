@@ -1,0 +1,42 @@
+---
+- name: Get the timestamp
+  shell: date +%d%b%Y-%H%M
+  register: timestamp
+
+- name: Find EC2 Facts
+  ec2_remote_facts:
+    region: "{{ region}}"
+    filters:
+      instance-state-name: running
+      "tag:Name": "{{tagname}}"
+      "tag:State": "{{tagstate}}"
+  register: ec2_instances
+- name: create AMI
+  ec2_ami:
+    instance_id: "{{item.id}}"
+    region: "{{ region }}"
+    wait: "{{waitForAmiCreation}}"
+    name: "{{instanceName}}-{{timestamp.stdout}}"
+    #tags: "{{amiTags}}"
+    tags:
+      Name: "{{tagname}}"
+      State: "{{tagstate}}"
+  with_items: "{{ ec2_instances.instances }}"
+  register: ami_array
+
+- name: create launch config
+  ec2_lc:
+    name: "{{instanceName}}-{{ timestamp.stdout }}"
+    image_id: "{{item.image_id}}"
+    key_name: "{{keyName}}"
+    region: "{{region}}"
+    security_groups: "{{ groupId}}"
+    instance_type: "{{ instanceType }}"
+    ebs_optimized: "{{ EbsOptimized }}"
+    instance_monitoring: "{{ InstanceMonitoring }}"
+    volumes:
+    - device_name: "{{ deviceName }}"
+      volume_type: "{{ deviceType }}"
+      volume_size:  "{{ volumeSize }}"
+    assign_public_ip: no
+  with_items: "{{ ami_array.results }}"  
