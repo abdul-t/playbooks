@@ -29,8 +29,8 @@ volumeSize: 8
 #autoScalingGroupName: "{{autoScalingGroupname}}"
 groupId: sg-07acab6de0a8f3724
 keyName: chefpoc
-vpc_id: vpc-8aa24ef0
-ror_sg_name: tower-sg
+vpcid: vpc-8aa24ef0 
+sgname: tower-sg
 sg_group: "devops-ror-sg" #registration name in playbook
 ports: ["3000","22","3306"]
-vpcidr: 172.31.0.0/16
+cidrip: 172.31.0.0/16
