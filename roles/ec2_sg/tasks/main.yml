@@ -1,0 +1,21 @@
+---
+- name: Get the timestamp
+  shell: date +%d%b%Y-%H%M
+  register: timestamp
+
+- name: Create simple security group for EC2
+  ec2_group:
+    name: "{{namesg}}"
+    description: "A security group for EC2-{{ timestamp.stdout }}"
+    region: "{{ region}}"
+    vpc_id: "{{ vpcid }}"
+    rules:
+      - proto: tcp
+        ports: "{{ ports }}"
+        cidr_ip: "{{cidrip}}"
+    rules_egress:
+      - proto: all
+        #from_port: "{{ porta }}"
+        #to_port: "{{ porta }}"
+        cidr_ip: 0.0.0.0/0
+  register: "{{sg_group}}"
