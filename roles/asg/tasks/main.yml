@@ -2,7 +2,7 @@
 - name: create Autoscaling Groups
   tags:
     - angular
-  State: green
+  State: present
   ec2_asg:
     name: asgdemo
     #load_balancers: "{{ elbname }}"
