@@ -1,12 +1,10 @@
 ---
 - name: create Autoscaling Groups
-  #tags: angular
-  #State: present
   ec2_asg:
     name: asgdemo
     #load_balancers: "{{ elbname }}"
     region: us-east-1
-    availability_zones: ['us-east-1a', 'us-east-1b']
+    availability_zones: ['us-east-1e', 'us-east-1c']
     #availability_zones:
       #- "{{ zonea }}"
       #- "{{ zoneb }}"
