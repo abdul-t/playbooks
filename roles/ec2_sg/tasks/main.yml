@@ -5,7 +5,7 @@
 
 - name: Create simple security group for EC2
   ec2_group:
-    name: "{{sgname}}"
+    name: "{{sgname}}-{{timestamp.stdout}}"
     description: "A security group for EC2-{{ timestamp.stdout }}"
     region: "{{ region}}"
     vpc_id: "{{ vpcid }}"
