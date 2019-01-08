@@ -33,4 +33,4 @@ vpc_id: vpc-8aa24ef0
 ror_sg_name: tower-sg
 sg_group: "devops-ror-sg" #registration name in playbook
 ports: ["3000","22","3306"]
-vpc_cidr: 172.31.0.0/16
+vpcidr: 172.31.0.0/16
