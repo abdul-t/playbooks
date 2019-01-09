@@ -1,7 +1,7 @@
 ---
 - name: Create the ELB only listening over port 80
   ec2_elb_lb:
-  name: tower-load-balancer
+    name: tower-load-balancer
     state: present
     region: us-east-1
     zones:
