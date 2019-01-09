@@ -3,6 +3,7 @@
   ec2_asg:
     name: asgdemo
     load_balancers: "{{ elbname }}"
+    instance_ids: i-01621eb958bde16f0
     region: us-east-1
     availability_zones: ['us-east-1e', 'us-east-1c']
     #availability_zones:
