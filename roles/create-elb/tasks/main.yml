@@ -4,6 +4,7 @@
     name: "test-load"
     scheme: internal
     state: present
+    region: us-east-1
     instance_ids:
       - i-01621eb958bde16f0
     purge_instance_ids: true
