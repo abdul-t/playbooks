@@ -5,7 +5,7 @@
     load_balancers: "{{ elbname }}"
     region: us-east-1
     availability_zones: [ 'us-east-1e', 'us-east-1c' ]
-    launch_config_name: 'lc-name'
+    launch_config_name: ansibletower-08Jan2019-1327
     min_size: 1
     max_size: 1
     desired_capacity: 1
