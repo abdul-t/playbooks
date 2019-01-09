@@ -1,24 +1,40 @@
 ---
-- name: Create ELB
-  ec2_elb_lb:
-    name: "{{ elbname }}"
+- local_action:
+    module: ec2_elb_lb
+    name: "test-load"
+    scheme: internal
     state: present
-    security_group_names: "{{ groupname }}"
-    subnets: "{{subnetid}}"
-    instance_ids: i-01621eb958bde16f0
-    region: "{{ region }}"
-    scheme: "{{ scheme }}"
+    instance_ids:
+      - i-01621eb958bde16f0
+    purge_instance_ids: true
+    subnets:
+      - subnet-6a09ac0d
+      - subnet-81ac46bf
     listeners:
-      - protocol: "{{proto}}"
-        load_balancer_port: "{{ ports }}"
-        instance_protocol: "{{proto}}" # optional, defaults to value of protocol setting
-        instance_port: "{{ ports }}"
-        #ssl_certificate_id: "{{ sslid }}"
-    health_check:
-        ping_protocol: tcp # options are http, https, ssl, tcp
-        ping_port: "{{ ports }}"
-        response_timeout: 5 # seconds
-        interval: 30 # seconds
-        unhealthy_threshold: 5
-        healthy_threshold: 2
-  register: "{{elb_group}}"
+      - protocol: http # options are http, https, ssl, tcp
+        load_balancer_port: 80
+        instance_port: 80
+#- name: Create ELB
+  #ec2_elb_lb:
+    #name: "{{ elbname }}"
+    #state: present
+    #security_group_names: "{{ groupname }}"
+    #subnets: "{{subnetid}}"
+    #nstance_ids: i-01621eb958bde16f0
+    #region: "{{ region }}"
+    #scheme: "{{ scheme }}"
+    #isteners:
+      #- protocol: "{{proto}}"
+        #load_balancer_port: "{{ ports }}"
+        #instance_protocol: "{{proto}}" # optional, defaults to value of protocol setting
+        #instance_port: "{{ ports }}"
+        ##ssl_certificate_id: "{{ sslid }}"
+    #health_check:
+        #ping_protocol: tcp # options are http, https, ssl, tcp
+        #ping_port: "{{ ports }}"
+        #response_timeout: 5 # seconds
+        #interval: 30 # seconds
+        #unhealthy_threshold: 5
+        #healthy_threshold: 2
+  #register: "{{elb_group}}"
+  
