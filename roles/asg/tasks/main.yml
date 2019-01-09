@@ -3,6 +3,7 @@
   ec2_asg:
     name: special
     load_balancers: "{{ elbname }}"
+    region: us-east-1
     availability_zones: [ 'us-east-1e', 'us-east-1c' ]
     launch_config_name: 'lc-name'
     min_size: 1
