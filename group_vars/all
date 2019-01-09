@@ -28,7 +28,7 @@ deviceType: gp2
 volumeSize: 8
 #autoScalingGroupName: "{{autoScalingGroupname}}"
 autoScalingGroupName: ansible-tower-asg
-elbname: ansible-tower-elb
+elbname: test-load
 groupname: launch-wizard-23
 groupId: sg-07acab6de0a8f3724
 keyName: chefpoc
