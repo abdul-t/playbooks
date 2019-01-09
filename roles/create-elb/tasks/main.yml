@@ -1,20 +1,17 @@
 ---
-- local_action:
-    module: ec2_elb_lb
-    name: "test-load"
-    scheme: internal
+- name: Create the ELB only listening over port 80
+  ec2_elb_lb:
+  name: tower-load-balancer
     state: present
     region: us-east-1
-    instance_ids:
-      - i-01621eb958bde16f0
-    purge_instance_ids: true
-    subnets:
-      - subnet-6a09ac0d
-      - subnet-81ac46bf
+    zones:
+      - us-east-1e
+      - us-east-1c
     listeners:
-      - protocol: http # options are http, https, ssl, tcp
+      - protocol: http
         load_balancer_port: 80
         instance_port: 80
+  register: elb
 #- name: Create ELB
   #ec2_elb_lb:
     #name: "{{ elbname }}"
