@@ -12,6 +12,16 @@
         load_balancer_port: 80
         instance_port: 80
   register: elb
+  
+- name: Find EC2 Facts
+  ec2_remote_facts:
+    region: us-east-1 #"{{ region}}"
+    filters:
+      instance-state-name: running
+      "tag:Name": Ansible-tower #"{{tagname}}"
+      "tag:State": green #"{{tagstate}}"
+  register: ec2_instances
+  
 - name: Add each EC2 instance to the ELB
   ec2_elb:
      state: present
