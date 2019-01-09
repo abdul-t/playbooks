@@ -21,8 +21,8 @@
       "tag:Name": chef-demo jumphost #"{{tagname}}"
       "tag:State": green #"{{tagstate}}"
   register: ec2_instances
-- debug:
-    ec2_instances
+  
+- debug: var=ec2_instances
   
 - name: Add each EC2 instance to the ELB
   ec2_elb:
