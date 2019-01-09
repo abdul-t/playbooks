@@ -21,6 +21,8 @@
       "tag:Name": chef-demo jumphost #"{{tagname}}"
       "tag:State": green #"{{tagstate}}"
   register: ec2_instances
+- debug:
+    ec2_instances
   
 - name: Add each EC2 instance to the ELB
   ec2_elb:
@@ -39,7 +41,7 @@
     #region: "{{ region }}"
     #scheme: "{{ scheme }}"
     #isteners:
-      #- protocol: "{{proto}}"
+      #- protocol: "{{ec2_instancesproto}}"
         #load_balancer_port: "{{ ports }}"
         #instance_protocol: "{{proto}}" # optional, defaults to value of protocol setting
         #instance_port: "{{ ports }}"
