@@ -28,7 +28,7 @@
      ec2_elbs: tower-load-balancer
      region: us-east-1
      instance_id: "{{ item.id }}"
-  with_items: "{{ ec2_instances.tagged_instances }}"
+  with_items: "{{ ec2_instances.tagged_instance }}"
 #- name: Create ELB
   #ec2_elb_lb:
     #name: "{{ elbname }}"
