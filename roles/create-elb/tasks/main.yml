@@ -12,7 +12,7 @@
         load_balancer_port: "{{ ports }}"
         instance_protocol: "{{proto}}" # optional, defaults to value of protocol setting
         instance_port: "{{ ports }}"
-        ssl_certificate_id: "{{ sslid }}"
+        #ssl_certificate_id: "{{ sslid }}"
     health_check:
         ping_protocol: tcp # options are http, https, ssl, tcp
         ping_port: "{{ ports }}"
