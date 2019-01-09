@@ -18,7 +18,7 @@
     region: us-east-1 #"{{ region}}"
     filters:
       instance-state-name: running
-      "tag:Name": Ansible-tower #"{{tagname}}"
+      "tag:Name": chef-demo jumphost #"{{tagname}}"
       "tag:State": green #"{{tagstate}}"
   register: ec2_instances
   
