@@ -3,6 +3,6 @@
   roles:
   #- infra
    #- ec2_sg 
-   # create-elb
-   - debug
+   - create-elb
+   #- debug
    #- asg
